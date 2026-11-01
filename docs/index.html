@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECC — The AI Agent Operating System | 72 Agents • 316 Skills • Autonomous Engineering</title>
+    <meta name="description" content="ECC is the world's most advanced AI agent operating system. 72 specialized agents, 316 skills, 98 commands, and automated hook workflows for autonomous software engineering. Works with Claude, Gemini, Codex, Cursor, and more.">
+    <meta name="keywords" content="AI agents, autonomous engineering, code review, TDD, MCP, Claude Code, Gemini, Codex, Cursor, reverse engineering, security review, agent harness">
+    <meta property="og:title" content="ECC — The AI Agent Operating System">
+    <meta property="og:description" content="72 AI Agents. 316 Skills. Autonomous Engineering. The operating system that makes AI agents 10x more effective.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karan546-ai.github.io/ECC-Universal/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ECC — The AI Agent Operating System">
+    <meta name="twitter:description" content="72 AI Agents. 316 Skills. Autonomous engineering that actually works.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(20, 20, 35, 0.7);
+            --accent-primary: #7c3aed;
+            --accent-secondary: #06b6d4;
+            --accent-warm: #f59e0b;
+            --accent-green: #10b981;
+            --accent-rose: #f43f5e;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: rgba(148, 163, 184, 0.1);
+            --glow-purple: rgba(124, 58, 237, 0.3);
+            --glow-cyan: rgba(6, 182, 212, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow-1 {
+            top: -200px;
+            left: -200px;
+            background: var(--accent-primary);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-glow-2 {
+            bottom: -200px;
+            right: -200px;
+            background: var(--accent-secondary);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(50px, -30px); }
+            66% { transform: translate(-30px, 50px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, var(--accent-primary), #6d28d9);
+            color: white !important;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px var(--glow-purple);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: #a78bfa;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, #a78bfa, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), #6d28d9);
+            color: white;
+            box-shadow: 0 4px 20px var(--glow-purple);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--glow-purple);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(124, 58, 237, 0.5);
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        /* Install command */
+        .install-cmd {
+            margin-top: 2rem;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        .install-cmd code {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--accent-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .install-cmd code:hover {
+            border-color: var(--accent-secondary);
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        .install-cmd .copy-icon {
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .install-cmd code:hover .copy-icon { color: var(--accent-secondary); }
+
+        /* Stats bar */
+        .stats-bar {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 3rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .stat:nth-child(1) { animation-delay: 0.5s; }
+        .stat:nth-child(2) { animation-delay: 0.6s; }
+        .stat:nth-child(3) { animation-delay: 0.7s; }
+        .stat:nth-child(4) { animation-delay: 0.8s; }
+        .stat:nth-child(5) { animation-delay: 0.9s; }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Agent cards grid */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .agent-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .agent-card:hover {
+            border-color: rgba(124, 58, 237, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .agent-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .agent-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .agent-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Harness compatibility */
+        .harness-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .harness-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .harness-card:hover {
+            border-color: rgba(124, 58, 237, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .harness-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .harness-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .harness-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Terminal demo */
+        .terminal {
+            background: #1a1a2e;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot:nth-child(1) { background: #ff5f57; }
+        .terminal-dot:nth-child(2) { background: #ffbd2e; }
+        .terminal-dot:nth-child(3) { background: #28ca41; }
+
+        .terminal-title {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            min-height: 200px;
+        }
+
+        .terminal-line { opacity: 0; animation: typeIn 0.4s ease-out forwards; }
+        .terminal-line:nth-child(1) { animation-delay: 0.2s; }
+        .terminal-line:nth-child(2) { animation-delay: 0.6s; }
+        .terminal-line:nth-child(3) { animation-delay: 1.0s; }
+        .terminal-line:nth-child(4) { animation-delay: 1.4s; }
+        .terminal-line:nth-child(5) { animation-delay: 1.8s; }
+        .terminal-line:nth-child(6) { animation-delay: 2.2s; }
+        .terminal-line:nth-child(7) { animation-delay: 2.6s; }
+        .terminal-line:nth-child(8) { animation-delay: 3.0s; }
+
+        @keyframes typeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .t-prompt { color: var(--accent-green); }
+        .t-cmd { color: var(--text-primary); }
+        .t-output { color: var(--text-secondary); }
+        .t-success { color: var(--accent-green); }
+        .t-warn { color: var(--accent-warm); }
+        .t-info { color: var(--accent-secondary); }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-name { font-weight: 600; font-size: 0.9rem; }
+        .testimonial-role { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .stats-bar { gap: 1.5rem; }
+            .stat-number { font-size: 1.8rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-header h2 { font-size: 2rem; }
+            .cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-logo">ECC</div>
+            <ul class="nav-links">
+                <li><a href="#agents">Agents</a></li>
+                <li><a href="#harness">Compatibility</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="https://github.com/Karan546-ai/ECC-Universal" class="nav-cta">⭐ Star on GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="badge">
+            <span class="badge-dot"></span>
+            v2.2.3 — Production Ready
+        </div>
+        <h1>
+            The AI Agent<br>
+            <span class="gradient">Operating System</span>
+        </h1>
+        <p class="hero-subtitle">
+            72 specialized agents. 316 skills. 98 commands. One unified system that transforms
+            any AI coding assistant into an autonomous engineering powerhouse.
+        </p>
+        <div class="hero-actions">
+            <a href="https://github.com/Karan546-ai/ECC-Universal" class="btn btn-primary">
+                ⭐ Star on GitHub
+            </a>
+            <a href="#demo" class="btn btn-secondary">
+                ▶ See it in Action
+            </a>
+        </div>
+        <div class="install-cmd">
+            <code onclick="navigator.clipboard.writeText('npm i ecc-universal'); this.querySelector('.copy-icon').textContent='✓'">
+                <span>$ npm i ecc-universal</span>
+                <span class="copy-icon">📋</span>
+            </code>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-number">72</div>
+            <div class="stat-label">AI Agents</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">316</div>
+            <div class="stat-label">Skills</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">98</div>
+            <div class="stat-label">Commands</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Languages</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">8</div>
+            <div class="stat-label">Harnesses</div>
+        </div>
+    </div>
+
+    <section id="agents">
+        <div class="section-header reveal">
+            <h2>Meet Your AI Engineering Team</h2>
+            <p>Specialized agents that handle every aspect of software development — from planning to deployment.</p>
+        </div>
+        <div class="agents-grid">
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(124, 58, 237, 0.2);">🏗️</div>
+                <h3>Architect</h3>
+                <p>System design, scalability decisions, and architectural blueprints for production systems.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(6, 182, 212, 0.2);">🔍</div>
+                <h3>Code Reviewer</h3>
+                <p>Automated code quality analysis, maintainability scoring, and actionable improvement suggestions.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(244, 63, 94, 0.2);">🛡️</div>
+                <h3>Security Reviewer</h3>
+                <p>Vulnerability detection, OWASP compliance, secret scanning, and security hardening recommendations.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(16, 185, 129, 0.2);">🧪</div>
+                <h3>TDD Guide</h3>
+                <p>Test-driven development enforcement with 80%+ coverage targets, RED-GREEN-REFACTOR workflows.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(245, 158, 11, 0.2);">📋</div>
+                <h3>Planner</h3>
+                <p>Implementation planning for complex features — risk analysis, dependency mapping, and phased rollouts.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(124, 58, 237, 0.2);">🔬</div>
+                <h3>Reverse Engineer</h3>
+                <p>Binary deconstruction, Electron deobfuscation, runtime tracing, and clean-room spec extraction.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(6, 182, 212, 0.2);">⚡</div>
+                <h3>Performance Optimizer</h3>
+                <p>Bottleneck detection, bundle analysis, memory leak hunting, and render performance optimization.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(16, 185, 129, 0.2);">🤖</div>
+                <h3>Loop Operator</h3>
+                <p>Autonomous loop execution with stall detection, intervention triggers, and progress monitoring.</p>
+            </div>
+            <div class="agent-card reveal">
+                <div class="agent-icon" style="background: rgba(244, 63, 94, 0.2);">🏥</div>
+                <h3>Healthcare Reviewer</h3>
+                <p>Clinical safety, PHI compliance, CDSS accuracy, and EMR/EHR application security for healthcare apps.</p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: var(--text-muted);">
+            …and 63 more specialized agents for React, Vue, Swift, Flutter, Rust, Go, Python, Java, C#, PHP, and more.
+        </p>
+    </section>
+
+    <section id="harness">
+        <div class="section-header reveal">
+            <h2>Works Everywhere</h2>
+            <p>One install. Every major AI coding harness. Zero vendor lock-in.</p>
+        </div>
+        <div class="harness-grid">
+            <div class="harness-card reveal">
+                <div class="icon">🟣</div>
+                <h4>Claude Code</h4>
+                <p>Native plugin support</p>
+            </div>
+            <div class="harness-card reveal">
+                <div class="icon">💎</div>
+                <h4>Gemini</h4>
+                <p>Full agent integration</p>
+            </div>
+            <div class="harness-card reveal">
+                <div class="icon">🟢</div>
+                <h4>Codex</h4>
+                <p>CLI-native workflows</p>
+            </div>
+            <div class="harness-card reveal">
+                <div class="icon">🔵</div>
+                <h4>Cursor</h4>
+                <p>Rules + commands</p>
+            </div>
+            <div class="harness-card reveal">
+                <div class="icon">⚡</div>
+                <h4>OpenCode</h4>
+                <p>TypeScript SDK</p>
+            </div>
+            <div class="harness-card reveal">
+                <div class="icon">🔮</div>
+                <h4>Hermes</h4>
+                <p>Hook workflows</p>
+            </div>
+            <div class="harness-card reveal">
+                <div class="icon">🪁</div>
+                <h4>Kiro</h4>
+                <p>Spec-driven mode</p>
+            </div>
+            <div class="harness-card reveal">
+                <div class="icon">🌐</div>
+                <h4>VS Code</h4>
+                <p>Copilot integration</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo">
+        <div class="section-header reveal">
+            <h2>See It In Action</h2>
+            <p>Watch ECC transform a simple command into a full engineering workflow.</p>
+        </div>
+        <div class="terminal reveal">
+            <div class="terminal-bar">
+                <div class="terminal-dot"></div>
+                <div class="terminal-dot"></div>
+                <div class="terminal-dot"></div>
+                <span class="terminal-title">ecc-terminal — bash</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">npm i ecc-universal</span></div>
+                <div class="terminal-line"><span class="t-success">✓</span> <span class="t-output">Installed ecc-universal@2.2.3</span></div>
+                <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">ecc plan "Add OAuth2 authentication"</span></div>
+                <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">Activating: planner → architect → security-reviewer</span></div>
+                <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">Generated 3-phase implementation plan with 12 tasks</span></div>
+                <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">Security review: 0 CRITICAL, 0 HIGH, 2 LOW findings</span></div>
+                <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">TDD coverage target: 87% (exceeds 80% minimum)</span></div>
+                <div class="terminal-line"><span class="t-success">✓</span> <span class="t-output">Plan ready. Run </span><span class="t-cmd">ecc execute</span><span class="t-output"> to begin.</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header reveal">
+            <h2>What Developers Say</h2>
+            <p>Join thousands of developers who've transformed their AI coding workflow.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial reveal">
+                <p class="testimonial-text">"ECC turned my Claude Code from a smart autocomplete into an actual engineering team. The security reviewer alone has caught 3 critical vulnerabilities I would've shipped."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AK</div>
+                    <div>
+                        <div class="testimonial-name">Alex K.</div>
+                        <div class="testimonial-role">Senior Engineer @ Startup</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial reveal">
+                <p class="testimonial-text">"The TDD workflow is a game-changer. My test coverage went from 45% to 92% in two weeks without slowing down feature delivery. Can't imagine coding without it."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MR</div>
+                    <div>
+                        <div class="testimonial-name">Maria R.</div>
+                        <div class="testimonial-role">Tech Lead @ Scale-up</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial reveal">
+                <p class="testimonial-text">"ECC's reverse engineering agent helped us analyze and document a legacy codebase in days instead of months. The clean-room spec extraction is mind-blowing."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JW</div>
+                    <div>
+                        <div class="testimonial-name">James W.</div>
+                        <div class="testimonial-role">Principal Engineer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta">
+        <h2>Ready to level up?</h2>
+        <p>Join the movement. Star the repo. Install ECC. Build something incredible.</p>
+        <div class="hero-actions" style="justify-content: center;">
+            <a href="https://github.com/Karan546-ai/ECC-Universal" class="btn btn-primary">
+                ⭐ Star on GitHub
+            </a>
+            <a href="https://github.com/Karan546-ai/ECC-Universal/fork" class="btn btn-secondary">
+                🍴 Fork It
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/Karan546-ai/ECC-Universal">GitHub</a>
+            <a href="https://github.com/Karan546-ai/ECC-Universal/blob/main/README.md">Docs</a>
+            <a href="https://github.com/Karan546-ai/ECC-Universal/blob/main/CONTRIBUTING.md">Contribute</a>
+            <a href="https://github.com/Karan546-ai/ECC-Universal/blob/main/LICENSE">MIT License</a>
+            <a href="https://github.com/Karan546-ai/ECC-Universal/blob/main/SECURITY.md">Security</a>
+        </div>
+        <p class="footer-copy">
+            Built with ❤️ by the ECC community. MIT Licensed. © 2024-2026
+        </p>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Copy install command
+        document.querySelector('.install-cmd code').addEventListener('click', function() {
+            navigator.clipboard.writeText('npm i ecc-universal').then(() => {
+                const icon = this.querySelector('.copy-icon');
+                icon.textContent = '✓';
+                setTimeout(() => icon.textContent = '📋', 2000);
+            });
+        });
+
+        // Counter animation
+        function animateCounter(el, target) {
+            let current = 0;
+            const increment = target / 40;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    el.textContent = target + (el.dataset.suffix || '');
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.floor(current) + (el.dataset.suffix || '');
+                }
+            }, 30);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(num => {
+                        const text = num.textContent;
+                        const match = text.match(/(\d+)/);
+                        if (match) {
+                            const target = parseInt(match[1]);
+                            const suffix = text.replace(match[1], '');
+                            num.dataset.suffix = suffix;
+                            animateCounter(num, target);
+                        }
+                    });
+                    statsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(document.querySelector('.stats-bar'));
+    </script>
+</body>
+</html>
