@@ -2,71 +2,52 @@
 
 > Credit line for every post: ECC-Universal is built on [ECC](https://github.com/affaan-m/ECC) by Affaan Mustafa (MIT). Only quote real, verifiable user numbers.
 
-Use these templates to promote ECC across social media and developer communities.
+Use these templates to promote ECC-Universal across social media and developer communities.
 
 ---
 
 ## 🐦 X (Twitter) Threads
 
-### Thread 1: The Problem/Solution Hook
+### Thread 1: Launch (one tweet per block)
 
 ```
-1/ I just open-sourced an AI agent operating system with 72 specialized agents, 316 skills, and 98 commands.
+1/ I built ECC-Universal: an AI agent operating system with 72 specialized agents, 316 skills and 98 commands.
 
-It turns ANY AI coding tool into an autonomous engineering team.
+It turns your AI coding tool into a structured engineering team. 🧵
+```
 
-Here's what it can do 🧵
+```
+2/ The problem: AI coding assistants are powerful but unstructured.
 
-2/ The problem: AI coding assistants are powerful but dumb by default.
+They skip tests. Miss security issues. Forget your architecture. Lose context between sessions.
+```
 
-They don't know your coding standards.
-They skip tests.
-They miss security vulnerabilities.
-They forget architectural patterns.
+```
+3/ ECC-Universal adds:
+🏗️ Architect agent
+🔍 Code reviewer
+🛡️ Security reviewer (OWASP, secrets)
+🧪 TDD enforcement
+📋 Planner
++ 67 more agents
+```
 
-ECC fixes all of this.
+```
+4/ Works with Claude Code, Codex, Cursor, OpenCode, Gemini and more.
 
-3/ ECC gives your AI assistant:
-
-🏗️ An architect agent for system design
-🔍 A code reviewer that catches issues
-🛡️ A security reviewer (OWASP, secrets, XSS)
-🧪 TDD enforcement with 80%+ coverage
-📋 A planner for complex features
-
-And 67 more specialized agents.
-
-4/ It works with EVERYTHING:
-
-✅ Claude Code (native plugin)
-✅ Gemini
-✅ Codex CLI
-✅ Cursor
-✅ VS Code Copilot
-✅ OpenCode
-✅ Hermes
-
-One install. Zero vendor lock-in.
-
-5/ The secret sauce? Agent orchestration.
-
-When you write React code → ecc:react-reviewer activates
-When you touch auth → ecc:security-reviewer triggers
-When you plan features → ecc:planner + ecc:architect collaborate
-
-It's like having a senior engineering team on autopilot.
-
-6/ Installing is one command:
-
+Install in Claude Code:
 /plugin marketplace add Karan546-ai/ECC-Universal
-
-Then just code. ECC handles the rest.
-
-⭐ Star it: github.com/Karan546-ai/ECC-Universal
-
-Built with ❤️ and hundreds of hours of engineering.
-RT if you think AI agents need structure.
+/plugin install ecc@ecc
 ```
+
+```
+5/ Built on ECC by @affaanmustafa (MIT), merged with my REA autonomous engineering layer.
+
+⭐ github.com/Karan546-ai/ECC-Universal
+🌐 karan546-ai.github.io/ECC-Universal
+```
+
+> Verify Affaan's X handle before posting.
 
 ### Thread 2: "Before/After" Hook
 
@@ -97,100 +78,46 @@ Drop a ⭐ if you want your AI assistant to actually think.
 ## 💼 LinkedIn Post
 
 ```
-🚀 Excited to share: ECC — the AI Agent Operating System
+🚀 Launching ECC-Universal: an AI agent operating system for coding assistants.
 
-After extensive development, I'm releasing a system that transforms AI coding assistants into autonomous engineering teams.
+AI coding tools are powerful but lack structure. ECC-Universal adds the standards, guardrails and specialized agents that turn raw AI output into reliable engineering work.
 
-What it includes:
-• 72 specialized agents (architecture, security, TDD, code review, and more)
-• 316 skills covering every aspect of software development
-• 98 commands for streamlined workflows
-• Support for 8 major AI coding platforms
+• 72 specialized agents (architecture, security, TDD, code review)
+• 316 skills, 98 commands
+• Works with Claude Code, Codex, Cursor, OpenCode, Gemini
 
-The philosophy is simple: AI coding tools are powerful but lack structure. ECC provides the operating system layer — the standards, guardrails, and intelligence that turn raw AI power into reliable engineering output.
-
-Key capabilities:
-→ Automatic code review on every change
-→ Security vulnerability detection before commits
-→ Test-driven development enforcement
-→ Multi-agent orchestration for complex tasks
-→ Cross-platform compatibility (Claude, Gemini, Codex, Cursor)
-
-It's open source. MIT licensed. Production-ready.
+It builds on the open-source ECC project by Affaan Mustafa (MIT), merged with my REA autonomous engineering layer.
 
 🔗 github.com/Karan546-ai/ECC-Universal
+🌐 karan546-ai.github.io/ECC-Universal
 
-If you're building with AI coding tools, give it a try. I'd love your feedback.
+Feedback welcome!
 
-#AI #OpenSource #SoftwareEngineering #DevTools #Coding #AgenticAI
+#AI #OpenSource #DevTools #AgenticAI
 ```
 
 ---
 
 ## 📢 Reddit Posts
 
-### r/programming
+Body: use the LinkedIn text without hashtags. Check each subreddit's self-promotion rules first.
 
-**Title:** "I built an open-source 'operating system' for AI coding agents — 72 agents, 316 skills, works with Claude/Gemini/Codex/Cursor"
-
-```
-Hey r/programming,
-
-I've been working on ECC (Engineering Command Center) — think of it as an OS layer that sits on top of AI coding assistants and makes them actually useful for production work.
-
-The core idea: AI coding tools are smart but lack structure. They don't enforce tests, miss security issues, don't follow your coding standards, and lose context. ECC adds all of that.
-
-What's in the box:
-- 72 specialized agents (architect, security reviewer, TDD guide, code reviewer, performance optimizer, etc.)
-- 316 skills covering everything from API design to database optimization
-- Automated hook workflows that trigger the right agent at the right time
-- Works with Claude Code, Gemini, Codex, Cursor, VS Code, and more
-
-Example workflow: You start working on authentication. ECC automatically activates the security reviewer, the planner generates a phased implementation plan, the TDD guide creates test scaffolding, and the code reviewer checks everything before you commit.
-
-It's MIT licensed and production-ready.
-
-GitHub: github.com/Karan546-ai/ECC-Universal
-
-Would love to hear what you think. What agents would you want to see?
-```
-
-### r/MachineLearning
-
-**Title:** "ECC: An open-source multi-agent orchestration system for AI coding — 72 agents with automated task routing"
-
-### r/ClaudeAI
-
-**Title:** "Released: ECC — plugin that gives Claude Code 72 specialized agents and 316 skills"
-
-### r/cursor
-
-**Title:** "ECC for Cursor: 72 AI agents that auto-activate based on what you're coding"
+- **r/ClaudeAI:** "ECC-Universal: Claude Code plugin with 72 agents and 316 skills (fork of ECC + my REA layer)"
+- **r/programming:** "ECC-Universal: an open-source agent operating system for AI coding tools (fork of ECC + REA)"
+- **r/cursor:** "ECC-Universal for Cursor: 72 agents that activate based on what you're coding (built on ECC)"
+- **r/MachineLearning:** "ECC-Universal: open-source multi-agent orchestration for AI coding, 72 agents with task routing (built on ECC)"
 
 ---
 
 ## 🟣 Hacker News
 
-**Title:** "Show HN: ECC – Open-source operating system for AI coding agents (72 agents, 316 skills)"
+**Title:** `Show HN: ECC-Universal – agent operating system for AI coding tools`
+**URL:** `https://github.com/Karan546-ai/ECC-Universal`
+
+First comment (post right after submitting):
 
 ```
-Hi HN,
-
-ECC is an open-source system that adds structure and intelligence to AI coding assistants.
-
-The problem: tools like Claude Code, Cursor, and Codex are powerful but lack guardrails. No automatic testing, no security review, no architectural patterns — just raw code generation.
-
-ECC provides:
-- 72 specialized agents (security, architecture, TDD, code review, reverse engineering, etc.)
-- 316 skills with domain-specific knowledge
-- Automated hook workflows that route tasks to the right agent
-- Cross-platform: works with Claude, Gemini, Codex, Cursor, VS Code
-
-The architecture is agent-first: when you modify React code, the React reviewer activates. When you touch auth, the security reviewer triggers. When you plan complex features, the planner and architect collaborate.
-
-MIT licensed. One-command install: `/plugin marketplace add Karan546-ai/ECC-Universal`
-
-Source: https://github.com/Karan546-ai/ECC-Universal
+Hi HN, this is a fork of ECC (github.com/affaan-m/ECC, MIT) merged with REA, an autonomous engineering layer I built. It adds 72 agents, 316 skills and hook workflows that route tasks to the right agent (security reviewer on auth changes, planner + architect for big features). Install in Claude Code: /plugin marketplace add Karan546-ai/ECC-Universal. Would love feedback on what REA should do next.
 ```
 
 ---
