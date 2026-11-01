@@ -674,8 +674,8 @@
             </a>
         </div>
         <div class="install-cmd">
-            <code onclick="navigator.clipboard.writeText('npm i ecc-universal'); this.querySelector('.copy-icon').textContent='✓'">
-                <span>$ npm i ecc-universal</span>
+            <code onclick="navigator.clipboard.writeText('/plugin marketplace add Karan546-ai/ECC-Universal'); this.querySelector('.copy-icon').textContent='✓'">
+                <span>$ /plugin marketplace add Karan546-ai/ECC-Universal</span>
                 <span class="copy-icon">📋</span>
             </code>
         </div>
@@ -823,8 +823,8 @@
                 <span class="terminal-title">ecc-terminal — bash</span>
             </div>
             <div class="terminal-body">
-                <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">npm i ecc-universal</span></div>
-                <div class="terminal-line"><span class="t-success">✓</span> <span class="t-output">Installed ecc-universal@2.2.3</span></div>
+                <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">/plugin marketplace add Karan546-ai/ECC-Universal</span></div>
+                <div class="terminal-line"><span class="t-success">✓</span> <span class="t-output">Marketplace added. Run /plugin install ecc@ecc</span></div>
                 <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">ecc plan "Add OAuth2 authentication"</span></div>
                 <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">Activating: planner → architect → security-reviewer</span></div>
                 <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">Generated 3-phase implementation plan with 12 tasks</span></div>
@@ -835,44 +835,6 @@
         </div>
     </section>
 
-    <section>
-        <div class="section-header reveal">
-            <h2>What Developers Say</h2>
-            <p>Join thousands of developers who've transformed their AI coding workflow.</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial reveal">
-                <p class="testimonial-text">"ECC turned my Claude Code from a smart autocomplete into an actual engineering team. The security reviewer alone has caught 3 critical vulnerabilities I would've shipped."</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">AK</div>
-                    <div>
-                        <div class="testimonial-name">Alex K.</div>
-                        <div class="testimonial-role">Senior Engineer @ Startup</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial reveal">
-                <p class="testimonial-text">"The TDD workflow is a game-changer. My test coverage went from 45% to 92% in two weeks without slowing down feature delivery. Can't imagine coding without it."</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">MR</div>
-                    <div>
-                        <div class="testimonial-name">Maria R.</div>
-                        <div class="testimonial-role">Tech Lead @ Scale-up</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial reveal">
-                <p class="testimonial-text">"ECC's reverse engineering agent helped us analyze and document a legacy codebase in days instead of months. The clean-room spec extraction is mind-blowing."</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">JW</div>
-                    <div>
-                        <div class="testimonial-name">James W.</div>
-                        <div class="testimonial-role">Principal Engineer</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <div class="cta">
         <h2>Ready to level up?</h2>
@@ -896,7 +858,7 @@
             <a href="https://github.com/Karan546-ai/ECC-Universal/blob/main/SECURITY.md">Security</a>
         </div>
         <p class="footer-copy">
-            Built with ❤️ by the ECC community. MIT Licensed. © 2024-2026
+            ECC-Universal © 2026 Karan. Built on <a href="https://github.com/affaan-m/ECC">ECC</a> © Affaan Mustafa. MIT Licensed.
         </p>
     </footer>
 
@@ -914,7 +876,7 @@
 
         // Copy install command
         document.querySelector('.install-cmd code').addEventListener('click', function() {
-            navigator.clipboard.writeText('npm i ecc-universal').then(() => {
+            navigator.clipboard.writeText('/plugin marketplace add Karan546-ai/ECC-Universal').then(() => {
                 const icon = this.querySelector('.copy-icon');
                 icon.textContent = '✓';
                 setTimeout(() => icon.textContent = '📋', 2000);

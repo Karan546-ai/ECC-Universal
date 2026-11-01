@@ -1,5 +1,7 @@
 # 🚀 ECC Viral Launch Kit
 
+> Credit line for every post: ECC-Universal is built on [ECC](https://github.com/affaan-m/ECC) by Affaan Mustafa (MIT). Only quote real, verifiable user numbers.
+
 Use these templates to promote ECC across social media and developer communities.
 
 ---
@@ -56,7 +58,7 @@ It's like having a senior engineering team on autopilot.
 
 6/ Installing is one command:
 
-npm i ecc-universal
+/plugin marketplace add Karan546-ai/ECC-Universal
 
 Then just code. ECC handles the rest.
 
@@ -83,14 +85,7 @@ After ECC:
 
 🧵
 
-2/ Real numbers from ECC users:
-
-Test coverage: 45% → 92%
-Security vulnerabilities: found 3 critical before shipping
-Planning time: 2 days → 2 hours
-Code review cycles: 4 rounds → 1 round
-
-3/ And it's 100% open source. MIT licensed.
+2/ And it's 100% open source. MIT licensed.
 
 ⭐ github.com/Karan546-ai/ECC-Universal
 
@@ -193,7 +188,7 @@ ECC provides:
 
 The architecture is agent-first: when you modify React code, the React reviewer activates. When you touch auth, the security reviewer triggers. When you plan complex features, the planner and architect collaborate.
 
-MIT licensed. One-command install: `npm i ecc-universal`
+MIT licensed. One-command install: `/plugin marketplace add Karan546-ai/ECC-Universal`
 
 Source: https://github.com/Karan546-ai/ECC-Universal
 ```
@@ -224,7 +219,7 @@ Install it once, and suddenly your AI has:
 - 69 more specialized agents"
 
 DEMO (25-50s):
-[Show terminal: npm i ecc-universal]
+[Show terminal: /plugin marketplace add Karan546-ai/ECC-Universal]
 [Show: Agent auto-activating on code change]
 [Show: Security scan results]
 [Show: Test coverage report]
