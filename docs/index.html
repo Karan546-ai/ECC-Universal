@@ -674,8 +674,8 @@
             </a>
         </div>
         <div class="install-cmd">
-            <code onclick="navigator.clipboard.writeText('/plugin marketplace add Karan546-ai/ECC-Universal'); this.querySelector('.copy-icon').textContent='✓'">
-                <span>$ /plugin marketplace add Karan546-ai/ECC-Universal</span>
+            <code onclick="navigator.clipboard.writeText('claude plugin marketplace add Karan546-ai/ECC-Universal'); this.querySelector('.copy-icon').textContent='✓'">
+                <span>$ claude plugin marketplace add Karan546-ai/ECC-Universal</span>
                 <span class="copy-icon">📋</span>
             </code>
         </div>
@@ -823,8 +823,8 @@
                 <span class="terminal-title">ecc-terminal — bash</span>
             </div>
             <div class="terminal-body">
-                <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">/plugin marketplace add Karan546-ai/ECC-Universal</span></div>
-                <div class="terminal-line"><span class="t-success">✓</span> <span class="t-output">Marketplace added. Run /plugin install ecc@ecc</span></div>
+                <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">claude plugin marketplace add Karan546-ai/ECC-Universal</span></div>
+                <div class="terminal-line"><span class="t-success">✓</span> <span class="t-output">Marketplace added. Run: claude plugin install ecc@ecc</span></div>
                 <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">ecc plan "Add OAuth2 authentication"</span></div>
                 <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">Activating: planner → architect → security-reviewer</span></div>
                 <div class="terminal-line"><span class="t-info">⟡</span> <span class="t-output">Generated 3-phase implementation plan with 12 tasks</span></div>
@@ -876,7 +876,7 @@
 
         // Copy install command
         document.querySelector('.install-cmd code').addEventListener('click', function() {
-            navigator.clipboard.writeText('/plugin marketplace add Karan546-ai/ECC-Universal').then(() => {
+            navigator.clipboard.writeText('claude plugin marketplace add Karan546-ai/ECC-Universal').then(() => {
                 const icon = this.querySelector('.copy-icon');
                 icon.textContent = '✓';
                 setTimeout(() => icon.textContent = '📋', 2000);
